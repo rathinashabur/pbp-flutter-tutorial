@@ -1,11 +1,12 @@
 import 'package:flutter_nasha/main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_nasha/page/to_do_page.dart';
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
 
-@override
-State<MyFormPage> createState() => _MyFormPageState();
+  @override
+  State<MyFormPage> createState() => _MyFormPageState();
 }
 
 class _MyFormPageState extends State<MyFormPage> {
@@ -21,7 +22,7 @@ class _MyFormPageState extends State<MyFormPage> {
 
   String kelasPBP = 'A';
   List<String> listKelasPBP = ['A', 'B', 'C', 'D', 'E', 'F', 'KI'];
-  
+
   bool _nilaiSwitch = false;
 
   String _jenjang() {
@@ -70,6 +71,16 @@ class _MyFormPageState extends State<MyFormPage> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const MyFormPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('To Do'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ToDoPage()),
                 );
               },
             ),
@@ -256,19 +267,25 @@ class _MyFormPageState extends State<MyFormPage> {
                             elevation: 15,
                             child: Container(
                               child: ListView(
-                                padding:const EdgeInsets.only(top: 20, bottom: 20),
+                                padding:
+                                    const EdgeInsets.only(top: 20, bottom: 20),
                                 shrinkWrap: true,
                                 children: <Widget>[
                                   Center(child: const Text('Informasi Data')),
                                   SizedBox(height: 20),
-                                 // TODO: Munculkan informasi yang didapat dari form
-                                  
-                                  Text('Nama: ' + _namaLengkap, textAlign: TextAlign.center),
-                                  Text('Jenjang: ' + _jenjang(),textAlign: TextAlign.center),
-                                  Text('Umur: $umur',textAlign: TextAlign.center),
-                                  Text('Kelas: ' + kelasPBP, textAlign: TextAlign.center),
-                                  Text('Practice Mode: ' + _practiceMode(), textAlign: TextAlign.center),
-                                  
+                                  // TODO: Munculkan informasi yang didapat dari form
+
+                                  Text('Nama: ' + _namaLengkap,
+                                      textAlign: TextAlign.center),
+                                  Text('Jenjang: ' + _jenjang(),
+                                      textAlign: TextAlign.center),
+                                  Text('Umur: $umur',
+                                      textAlign: TextAlign.center),
+                                  Text('Kelas: ' + kelasPBP,
+                                      textAlign: TextAlign.center),
+                                  Text('Practice Mode: ' + _practiceMode(),
+                                      textAlign: TextAlign.center),
+
                                   TextButton(
                                     onPressed: () {
                                       Navigator.pop(context);
@@ -284,7 +301,6 @@ class _MyFormPageState extends State<MyFormPage> {
                     }
                   },
                 ),
-
               ],
             ),
           ),
